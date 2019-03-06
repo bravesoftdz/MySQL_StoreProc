@@ -5,8 +5,8 @@ How create stored procedure in MySQL
 
 
 # Features  
-- create table (mysql)
-- create stored procedure (mysql)
+- Create table (mysql)
+- Create stored procedure (mysql)
 
 
 
