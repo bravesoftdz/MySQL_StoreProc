@@ -13,8 +13,8 @@ object DMModule: TDMModule
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
     VendorLib = 'C:\AllServer\mysql\lib\libmysql.dll'
-    Left = 56
-    Top = 136
+    Left = 16
+    Top = 128
   end
   object MySQLWaitCursor: TFDGUIxWaitCursor
     Provider = 'Forms'
@@ -24,8 +24,8 @@ object DMModule: TDMModule
   object ProcGetName: TFDStoredProc
     Connection = ConnectionMain
     StoredProcName = 'mywalid.GetName'
-    Left = 128
-    Top = 104
+    Left = 120
+    Top = 128
     ParamData = <
       item
         Position = 1
@@ -44,8 +44,8 @@ object DMModule: TDMModule
   object ProcCounter: TFDStoredProc
     Connection = ConnectionMain
     StoredProcName = 'mywalid.Counter'
-    Left = 128
-    Top = 168
+    Left = 120
+    Top = 200
     ParamData = <
       item
         Position = 1
