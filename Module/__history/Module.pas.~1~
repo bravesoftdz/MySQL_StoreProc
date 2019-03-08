@@ -1,5 +1,5 @@
 { ============================================
-  Software Name : 	MySQL_StoreProc
+  Software Name : 	MySql_StoreProc
   ============================================ }
 { ******************************************** }
 { Written By WalWalWalides                     }
@@ -23,7 +23,6 @@ type
     MySQLWaitCursor: TFDGUIxWaitCursor;
     ProcGetName: TFDStoredProc;
     ProcCounter: TFDStoredProc;
-
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private-Deklarationen }

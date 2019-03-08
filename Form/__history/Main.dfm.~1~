@@ -24,6 +24,7 @@ object frmMain: TfrmMain
     Align = alBottom
     Caption = 'Controle'
     TabOrder = 0
+    ExplicitTop = 407
     object bitbtnDelScript: TBitBtn
       AlignWithMargins = True
       Left = 432
@@ -71,6 +72,7 @@ object frmMain: TfrmMain
       ParentDoubleBuffered = True
       TabOrder = 0
       OnClick = bitbtnDelScriptClick
+      ExplicitTop = 20
     end
     object bitbtnCrScript: TBitBtn
       AlignWithMargins = True
@@ -119,6 +121,9 @@ object frmMain: TfrmMain
       ParentDoubleBuffered = True
       TabOrder = 1
       OnClick = bitbtnCrScriptClick
+      ExplicitLeft = 544
+      ExplicitTop = 25
+      ExplicitHeight = 25
     end
     object btnBuildTable: TBitBtn
       AlignWithMargins = True
@@ -166,6 +171,8 @@ object frmMain: TfrmMain
       ParentDoubleBuffered = True
       TabOrder = 2
       OnClick = btnBuildTableClick
+      ExplicitLeft = 3
+      ExplicitTop = 20
     end
   end
   object pnlHead: TPanel
@@ -180,7 +187,7 @@ object frmMain: TfrmMain
       AlignWithMargins = True
       Left = 4
       Top = 12
-      Width = 13
+      Width = 30
       Height = 25
       Margins.Top = 11
       Align = alLeft
@@ -192,7 +199,8 @@ object frmMain: TfrmMain
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitHeight = 13
+      ExplicitTop = 11
+      ExplicitHeight = 30
     end
     object SPedtCount: TSpinEdit
       AlignWithMargins = True
@@ -207,9 +215,9 @@ object frmMain: TfrmMain
     end
     object btnDisplayName: TBitBtn
       AlignWithMargins = True
-      Left = 120
+      Left = 137
       Top = 4
-      Width = 527
+      Width = 510
       Height = 30
       Cursor = crHandPoint
       Margins.Left = 100
@@ -253,6 +261,7 @@ object frmMain: TfrmMain
       ParentDoubleBuffered = True
       TabOrder = 0
       OnClick = btnDisplayNameClick
+      ExplicitHeight = 22
     end
   end
 end
