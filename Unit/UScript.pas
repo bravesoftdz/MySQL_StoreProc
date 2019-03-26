@@ -2,20 +2,22 @@
   Software Name : 	MySQL_StoreProc
   ============================================ }
 { ******************************************** }
-{ Written By WalWalWalides                     }
-{ CopyRight © 2019                             }
-{ Email : WalWalWalides@gmail.com              }
-{ GitHub :https://github.com/walwalwalides     }
+{ Written By WalWalWalides }
+{ CopyRight © 2019 }
+{ Email : WalWalWalides@gmail.com }
+{ GitHub :https://github.com/walwalwalides }
 { ******************************************** }
 unit UScript;
 
 interface
+
 uses FireDAC.Comp.Script;
 
 procedure CreateScript;
 procedure DeleteScript;
 procedure CreateTable;
 procedure BuildTable;
+procedure CreateTableLog;
 
 implementation
 
@@ -55,7 +57,7 @@ begin
     tmpScript.ExecuteAll;
   finally
     tmpScript.free;
-   DMModule.ProcGetName.StoredProcName := 'mywalid.GetName';
+    DMModule.ProcGetName.StoredProcName := 'mywalid.GetName';
 
   end;
 
@@ -91,7 +93,7 @@ begin
     tmpScript.ExecuteAll;
   finally
     tmpScript.free;
-  DMModule.ProcCounter.StoredProcName := 'mywalid.Counter';
+    DMModule.ProcCounter.StoredProcName := 'mywalid.Counter';
 
   end;
 
@@ -125,6 +127,72 @@ begin
 
 end;
 
+procedure CreateData_Table;
+var
+  tmpScript: TFDScript;
+begin
+  tmpScript := TFDScript.Create(nil);
+  tmpScript.Connection := DMModule.ConnectionMain;
+  with tmpScript.SQLScripts do
+  begin
+    Clear;
+
+    with Add do
+    begin
+      Name := 'Data_Table';
+      SQL.Add('DROP TABLE IF EXISTS Data_Table ;');
+      SQL.Add('create table Data_Table(');
+      SQL.Add('Id INT NOT NULL AUTO_INCREMENT,');
+      SQL.Add('VTYPE INT,');
+      SQL.Add('KIND_ID INT,');
+      SQL.Add('PRIMARY KEY ( Id )');
+      SQL.Add(');');
+    end;
+  end;
+
+  try
+    tmpScript.ValidateAll;
+    tmpScript.ExecuteAll;
+  finally
+    tmpScript.free;
+
+  end;
+
+end;
+
+procedure CreateTableLog;
+var
+  tmpScript: TFDScript;
+begin
+  tmpScript := TFDScript.Create(nil);
+  tmpScript.Connection := DMModule.FDErrLogConn;
+  with tmpScript.SQLScripts do
+  begin
+    Clear;
+
+    with Add do
+    begin
+      Name := 'LogConnec';
+      SQL.Add('CREATE TABLE IF NOT EXISTS LogConnec(');
+      SQL.Add('Id INT NOT NULL AUTO_INCREMENT,');
+      SQL.Add('APPID INT,');
+      SQL.Add('EVN_TYPE INT,');
+      SQL.Add('EMSG VARCHAR(255),');
+      SQL.Add('PRIMARY KEY ( Id )');
+      SQL.Add(');');
+    end;
+  end;
+
+  try
+    tmpScript.ValidateAll;
+    tmpScript.ExecuteAll;
+  finally
+    tmpScript.free;
+
+  end;
+
+end;
+
 procedure CreateTable;
 var
   tmpScript: TFDScript;
@@ -137,8 +205,8 @@ begin
 
     with Add do
     begin
-      Name := 'customers';
-      SQL.Add('DROP TABLE IF EXISTS customers ;');
+      Name := 'Customers';
+      SQL.Add('DROP TABLE IF EXISTS Customers ;');
       SQL.Add('create table customers(');
       SQL.Add('Id INT NOT NULL AUTO_INCREMENT,');
       SQL.Add('Name VARCHAR(40) NOT NULL,');
@@ -178,32 +246,33 @@ begin
       SQL.Add('VALUES');
       SQL.Add('(3,"Patrick");');
     end;
-    end;
-    try
-      tmpScript.ValidateAll;
-      tmpScript.ExecuteAll;
-    finally
-      tmpScript.free;
-
-    end;
+  end;
+  try
+    tmpScript.ValidateAll;
+    tmpScript.ExecuteAll;
+  finally
+    tmpScript.free;
 
   end;
 
+end;
 
-  procedure CreateScript;
-  begin
-    CreateScriptGetName;
-    CreateScriptCountable;
-  end;
+procedure CreateScript;
+begin
+  CreateScriptGetName;
+  CreateScriptCountable;
+end;
 
-  procedure DeleteScript;
-  begin
-    DeleteAllProcFunc;
-  end;
-procedure  BuildTable;
+procedure DeleteScript;
+begin
+  DeleteAllProcFunc;
+end;
+
+procedure BuildTable;
 begin
   CreateTable;
   InsertTable;
+  CreateData_Table;
 end;
 
 end.

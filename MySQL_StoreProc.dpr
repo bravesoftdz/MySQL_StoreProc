@@ -4,7 +4,10 @@ uses
   Vcl.Forms,
   UScript in 'Unit\UScript.pas',
   Module in 'Module\Module.pas' {DMModule: TDataModule},
-  Main in 'Form\Main.pas' {frmMain};
+  Main in 'Form\Main.pas' {frmMain},
+  URegConfig in 'Unit\URegConfig.pas',
+  UConfig in 'Unit\UConfig.pas',
+  ULog in 'Unit\ULog.pas';
 
 {$R *.res}
 
