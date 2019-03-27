@@ -8,7 +8,7 @@ How create stored procedure in MySQL
 - Create table (mysql)
 - Create stored procedure (mysql)
 - Configure client server settings by using a windows registry 
-
+- Log client connections
 
 
 
